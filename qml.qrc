@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>FreeLayoutItem.qml</file>
+        <file>FreeLayoutSpace.qml</file>
+    </qresource>
+</RCC>
