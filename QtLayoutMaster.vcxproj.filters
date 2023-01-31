@@ -34,10 +34,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FreeLayoutItem.qml">
+    <None Include="StackLayoutComponent.qml">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="FreeLayoutSpace.qml">
+    <None Include="ComponentSplitView.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="LabeledComponent.qml">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

@@ -9,53 +9,46 @@ Window {
   height: 480
   title: qsTr("Hello World")
   
-  Pane { id: redtangle
-    background: Rectangle {color: "Red"}
-  }
+  StackLayoutComponent { id: stackLayoutComponent }
 
-  FreeLayoutItem { id: item
-    content: Rectangle {
-      color: "Red"
-    } // Rectangle
-  } // FreeLayoutItem
-  
-  Component { id: redButtonComponent
-    FreeLayoutItem { 
-      content: Rectangle {
-        color: "Red"
-      } // Rectangle
-    } // FreeLayoutItem
-  } // Component
-  
+  Component { id: rectComponent
+		Rectangle { 
+			color: Qt.rgba(Math.random(),Math.random(),Math.random(),1)
+		} // Rectangle
+	} // Component
+
+	Component { id: labelComponent
+		Label { 
+			text: "Label " + Math.random()
+			font.pointSize: 14
+		} // Label
+	} // Component
+
   Pane { anchors.fill: parent
     ColumnLayout { anchors.fill: parent
-      FreeLayoutSpace { id: freeLayoutSpace
+      ComponentSplitView { id: componentSplitView
         Layout.fillWidth: true; Layout.fillHeight: true
         orientation: Qt.Horizontal
       } // FreeLayoutSpace
-      Button {
-        text: "add red"
-        // onClicked: freeLayoutSpace.addItem("RED", redButtonComponent.createObject()) 
-        onClicked: freeLayoutSpace.addItem("RED", item) 
-      } // Button
-      SplitView { Layout.fillWidth: true; Layout.preferredHeight: parent.height / 2
-        FreeLayoutItem { 
-          content: Rectangle {
-            color: "Red"
-          } // Rectangle
-        } // FreeLayoutItem
-        FreeLayoutItem { 
-          content: Rectangle {
-            color: "Red"
-          } // Rectangle
-        } // FreeLayoutItem
-      } // SplitView
+      Pane {
+        RowLayout {
+          Button {
+            text: "Add empty stack"
+            onClicked: componentSplitView.addObject(
+              stackLayoutComponent.createObject())
+          } // Button
+          Button {
+            text: "Add stack with 3 item"
+            onClicked: {
+              var stackLayout = stackLayoutComponent.createObject()
+              stackLayout.addComponent("Rect1", rectComponent)
+              stackLayout.addComponent("Label", labelComponent)
+              stackLayout.addComponent("Rect2", rectComponent)
+              componentSplitView.addObject(stackLayout)
+            }
+          } // Button
+        } // RowLayout
+      } // Pane
     } // ColumnLayout
   } // Pane
-  
-
-  
-  
-  
-
 } // Window

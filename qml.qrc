@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>FreeLayoutItem.qml</file>
-        <file>FreeLayoutSpace.qml</file>
+        <file>StackLayoutComponent.qml</file>
+        <file>ComponentSplitView.qml</file>
     </qresource>
 </RCC>
