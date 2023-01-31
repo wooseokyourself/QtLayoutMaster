@@ -11,7 +11,7 @@ Pane {
 
 	function addObject(object) {
 		object.parent = splitView
-		listModel.append( object )
+		listModel.append(object)
 	}
 
 	SplitView { id: splitView

@@ -86,6 +86,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <None Include="ComponentResizableView.qml" />
+    <None Include="WindowComponent.qml" />
     <QtRcc Include="qml.qrc" />
     <None Include="LabeledComponent.qml" />
     <None Include="StackLayoutComponent.qml" />

@@ -27,24 +27,36 @@ Window {
   Pane { anchors.fill: parent
     ColumnLayout { anchors.fill: parent
       ComponentSplitView { id: componentSplitView
-        Layout.fillWidth: true; Layout.fillHeight: true
+        Layout.fillWidth: true; Layout.preferredHeight: parent.height * 0.4
         orientation: Qt.Horizontal
-      } // FreeLayoutSpace
+      } // ComponentSplitView
+      ComponentResizableView { id: componentResizableView
+        Layout.fillWidth: true; Layout.preferredHeight: parent.height * 0.4
+      }
       Pane {
         RowLayout {
           Button {
             text: "Add empty stack"
-            onClicked: componentSplitView.addObject(
-              stackLayoutComponent.createObject())
+            onClicked: {
+              componentSplitView.addObject(stackLayoutComponent.createObject())
+              componentResizableView.addObject(
+                stackLayoutComponent.createObject(componentResizableView, {x: 100, y: 100, width: 300, height: 300}))
+            }
           } // Button
           Button {
             text: "Add stack with 3 item"
             onClicked: {
-              var stackLayout = stackLayoutComponent.createObject()
-              stackLayout.addComponent("Rect1", rectComponent)
-              stackLayout.addComponent("Label", labelComponent)
-              stackLayout.addComponent("Rect2", rectComponent)
-              componentSplitView.addObject(stackLayout)
+              var stackLayout1 = stackLayoutComponent.createObject()
+              stackLayout1.addComponent("Rect1", rectComponent)
+              stackLayout1.addComponent("Label", labelComponent)
+              stackLayout1.addComponent("Rect2", rectComponent)
+              componentSplitView.addObject(stackLayout1)
+              
+              var stackLayout2 = stackLayoutComponent.createObject(componentResizableView, {x: 100, y: 100, width: 300, height: 300})
+              stackLayout2.addComponent("Rect1", rectComponent)
+              stackLayout2.addComponent("Label", labelComponent)
+              stackLayout2.addComponent("Rect2", rectComponent)
+              componentResizableView.addObject(stackLayout2)
             }
           } // Button
         } // RowLayout

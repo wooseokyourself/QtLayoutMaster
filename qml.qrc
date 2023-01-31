@@ -3,5 +3,7 @@
         <file>main.qml</file>
         <file>StackLayoutComponent.qml</file>
         <file>ComponentSplitView.qml</file>
+        <file>WindowComponent.qml</file>
+        <file>ComponentResizableView.qml</file>
     </qresource>
 </RCC>

@@ -43,5 +43,11 @@
     <None Include="LabeledComponent.qml">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="WindowComponent.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ComponentResizableView.qml">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
